@@ -278,6 +278,13 @@
   var started=false, voiceOn=false, lead={step:null};
   var PHONE='<a href="tel:+12813100104">(281) 310-0104</a>';
   var KB=[
+    {k:["gushing","geyser","burst","broken pipe","water everywhere","spraying everywhere","won't stop","wont stop","won't turn off","wont turn off","running nonstop","keeps running","stuck on","won't shut off","wont shut off"],a:"Let's stop the water first so you don't lose thousands of gallons:<br><b>1.</b> Turn your sprinkler controller (timer) to <b>OFF</b>.<br><b>2.</b> Still running? Close the <b>irrigation shut-off valve</b>. It's usually next to the backflow device (the U-shaped pipe near the house or by the water meter). Turn the handle a quarter turn so it sits <b>across</b> the pipe.<br><b>3.</b> Still running? Turn off the <b>main water shut-off</b> at the house or meter.<br>Once the water is stopped, I'll get a tech out as soon as possible. For the fastest help, call "+PHONE+".",chips:["Water is stopped, book a repair","I can't find the shut-off valve","Call now"]},
+    {k:["can't find","cant find","shut-off","shutoff","shut off valve","where is the valve","find the backflow"],a:"Look for the <b>backflow device</b>: a U-shaped pipe, often brass or wrapped, sticking up near the front of the house or close to the water meter. The irrigation shut-off is the valve right next to it (a lever or round handle). If you can't find it, turn off the <b>main water</b> at the house shut-off or the meter box near the street. Or call "+PHONE+" and we'll walk you through it on the phone.",chips:["Water is stopped, book a repair","Call now"]},
+    {k:["small leak","soggy","puddle","dripping","wet spot","little leak","slow leak"],a:"Good news: that's usually not an emergency. Until we get there:<br><b>1.</b> Set the controller to <b>OFF</b> (or rain mode) so it doesn't keep wasting water.<br><b>2.</b> Mark the wet spot with a stick or flag.<br><b>3.</b> Snap a photo. It helps the tech bring the right parts.<br>The usual causes are a broken head, a cracked pipe, or a valve that's weeping. Want me to book the repair?",book:true},
+    {k:["leak","leaking","broken head","broken sprinkler","water bill"],a:"Let's figure out how urgent this is. Is water <b>gushing right now</b>, or is it a <b>small leak or soggy spot</b>?",chips:["Water is gushing right now","Small leak or soggy spot"]},
+    {k:["controller","timer","no power","blank","screen","won't turn on","wont turn on"],a:"A few quick checks first:<br><b>1.</b> Make sure it's plugged in, and press the reset on the outlet if it has one (garage outlets often trip).<br><b>2.</b> Check the breaker.<br><b>3.</b> If the screen works, make sure it isn't set to OFF or rain mode.<br>Still not working? The controller or its wiring may need replacing. Want me to book a tech?",book:true},
+    {k:["dry","brown","dying","dead grass","dead plants","not getting water","not watering","plants"],a:"Try these first:<br><b>1.</b> Make sure the controller isn't on OFF or rain mode, and the rain sensor isn't stuck.<br><b>2.</b> Run that zone manually and watch it. Look for heads that don't pop up, clogged nozzles, or spray blocked by plants.<br>If the zone doesn't run at all, it's usually a valve or wiring problem. Want me to book a visit?",book:true},
+
     {k:['hour','open','close','weekend','saturday','sunday','time'],a:'Our office is open Monday to Friday 8am to 5pm, and Saturday 8am to 4pm. I\'m here 24/7, so I can take your request right now and the team will follow up.',book:true},
     {k:['leak','leaking','broken','puddle','soggy sprinkler','water bill','bill','head','nozzle','valve','zone','dry','brown'],a:'Sounds like your sprinkler system needs a repair. Our state-licensed technicians fix leaks, broken heads, valves, and dry zones with quality parts at a fair price. Want me to set up a repair visit?',book:true},
     {k:['install','new system','new sprinkler','rain bird','design'],a:'We design and install water-efficient sprinkler systems as a Rain Bird Select Contractor. Every new install includes a 3-year written warranty, a wireless rain sensor, a CAD drawing of your system, free adjustments for 30 days, and we handle the permits. Want a free estimate?',book:true},
@@ -297,7 +304,7 @@
   function add(html,who){ var d=document.createElement('div'); d.className='m '+who; d.innerHTML=html; msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; return d; }
   function chips(list){ var c=document.createElement('div'); c.className='chips'; list.forEach(function(l){var b=document.createElement('button'); b.type='button'; b.textContent=l; b.onclick=function(){send(l)}; c.appendChild(b)}); msgs.appendChild(c); msgs.scrollTop=msgs.scrollHeight; }
   function bot(html,ch){ var t=document.createElement('div'); t.className='typing'; t.textContent='Assistant is typing…'; msgs.appendChild(t); msgs.scrollTop=msgs.scrollHeight;
-    setTimeout(function(){ t.remove(); add(html,'bot'); say(html); if(ch)chips(ch); },650); }
+    setTimeout(function(){ t.remove(); var d=add(html,'bot'); say(html); if(ch)chips(ch); if(d.offsetHeight>msgs.clientHeight*0.6){ msgs.scrollTop=d.offsetTop-msgs.offsetTop-8; } },650); }
   function startBooking(){ lead={step:'name'}; bot('Great, let\'s get you scheduled. What\'s your name?'); }
   function handleLead(text){
     if(lead.step==='name'){ lead.name=text; lead.step='phone'; bot('Thanks, '+text.split(' ')[0]+'! What\'s the best phone number to reach you?'); return true; }
@@ -311,10 +318,11 @@
   function answer(text){
     if(handleLead(text))return;
     var q=text.toLowerCase();
+    if(q==='call now'){ bot('Call us now at '+PHONE+'. If no one picks up, I can take your details and have someone call you right back.',['Yes, book a visit']); return; }
     if(q==='ask another question'){ bot('Sure, what else can I help with?',['Hours','Drainage','VIP plans','Book a visit']); return; }
     for(var i=0;i<KB.length;i++){ var e=KB[i]; for(var j=0;j<e.k.length;j++){ if(q.indexOf(e.k[j])>-1){
       if(e.a==='__book__'){ startBooking(); return; }
-      bot(e.a, e.book?['Yes, book a visit','Ask another question']:['Book a visit','Ask another question']); return; } } }
+      bot(e.a, e.chips?e.chips:(e.book?['Yes, book a visit','Ask another question']:['Book a visit','Ask another question'])); return; } } }
     bot('Good question. I want to make sure you get the right answer, so I\'ll have one of our licensed techs follow up. Want me to take your details? Or call '+PHONE+'.',['Yes, book a visit','Hours','Service area']);
   }
   window.send=function(text){ add(esc(text),'me'); answer(text); };
