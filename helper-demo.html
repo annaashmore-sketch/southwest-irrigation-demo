@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+
+<meta name="description" content="Southwest Irrigation Systems: sprinkler installation and repair, drainage correction, hydro jet drain cleaning, and outdoor lighting across greater Houston since 1985. Call (281) 310-0104.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#14466e; --green-dark:#0c2c47; --sage:#e3f4f6;
+    --terra:#0f9fb3; --terra-dark:#0b8494; --sand:#f4f8f9;
+    --ink:#1e2420; --muted:#5f6b62; --line:#e2ddd2; --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6}
+  h1,h2,h3{font-family:Archivo,system-ui,sans-serif;line-height:1.1;color:var(--green-dark);letter-spacing:-.01em}
+  a{color:inherit}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-block;padding:15px 28px;border-radius:10px;font-weight:700;text-decoration:none;transition:.2s;border:2px solid transparent;font-size:1rem;cursor:pointer}
+  .btn-primary{background:var(--terra);color:#fff}
+  .btn-primary:hover{background:var(--terra-dark);transform:translateY(-1px)}
+  .btn-ghost{border-color:rgba(255,255,255,.7);color:#fff}
+  .btn-ghost:hover{background:#fff;color:var(--green-dark)}
+
+  .demo-bar{background:#111;color:#eee;text-align:center;font-size:.8rem;padding:7px 14px}
+  .topbar{background:var(--green-dark);color:#cfe0ee;font-size:.88rem}
+  .topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+  .topbar a{color:#fff;font-weight:700;text-decoration:none}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo svg{flex:0 0 38px}
+  .logo b{font-family:Archivo,sans-serif;font-weight:800;font-size:1.3rem;color:var(--green-dark);line-height:1}
+  .logo small{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:700}
+  .navlinks{display:flex;gap:26px;align-items:center}
+  .navlinks a{text-decoration:none;font-weight:500}
+  .navlinks a:hover{color:var(--terra)}
+  .navlinks .btn{padding:11px 20px;color:#fff}
+  @media(max-width:860px){.navlinks a:not(.btn){display:none}}
+
+  .hero{position:relative;color:#fff;background:linear-gradient(rgba(10,30,45,.38),rgba(10,30,45,.38)),url(assets/hero.jpg) center/cover no-repeat;overflow:hidden}
+  .hero .mtn{display:none}
+  @media(max-width:760px){.hero{background:linear-gradient(180deg,rgba(12,44,71,0) 0,rgba(12,44,71,0) 52vw,#0c2c47 66vw),url(assets/hero.jpg) top center/100% auto no-repeat,#0c2c47!important}.hero .wrap{padding-top:58vw!important}}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-top:80px;padding-bottom:110px}
+  .badge{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:7px 14px;border-radius:999px;font-size:.85rem;margin-bottom:20px}
+  .hero h1{text-shadow:0 2px 14px rgba(0,0,0,.45);color:#fff;font-size:clamp(2.3rem,5.2vw,3.8rem);font-weight:800;margin-bottom:18px}
+  .hero h1 em{font-style:normal;color:#8fe0a8}
+  .hero p.lead{text-shadow:0 1px 8px rgba(0,0,0,.5);font-size:1.15rem;color:#d3e2ee;max-width:560px;margin-bottom:30px}
+  .ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .proof{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px}
+  .proof div{font-size:.9rem;color:#d3e2ee}
+  .proof strong{display:block;font-family:Archivo,sans-serif;font-size:1.5rem;color:#fff}
+  .quote-card{background:#fff;color:var(--ink);border-radius:18px;padding:28px;box-shadow:0 30px 60px rgba(0,0,0,.3)}
+  .quote-card h3{font-size:1.4rem;margin-bottom:4px}
+  .quote-card p{color:var(--muted);font-size:.95rem;margin-bottom:16px}
+  @media(max-width:920px){.hero .wrap{grid-template-columns:1fr;padding-top:52px;padding-bottom:80px}}
+
+  form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  form input,form select,form textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;margin-bottom:12px;background:#fff}
+  form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--green);border-color:transparent}
+  form .btn{width:100%}
+  .form-note{font-size:.8rem;color:var(--muted);text-align:center;margin-top:8px}
+  @media(max-width:480px){form .row{grid-template-columns:1fr}}
+
+  section{padding:88px 0}
+  .head{text-align:center;max-width:700px;margin:0 auto 50px}
+  .kicker{color:var(--terra);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;margin-bottom:10px}
+  .head h2{font-size:clamp(1.9rem,3.8vw,2.7rem);margin-bottom:12px}
+  .head p{color:var(--muted);font-size:1.07rem}
+
+  .trustrow{background:var(--sand);border-bottom:1px solid var(--line);padding:22px 0}
+  .trustrow .wrap{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;font-weight:600;color:var(--green-dark)}
+  .trustrow span::before{content:"✔ ";color:var(--terra)}
+
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .svc{border:1px solid var(--line);border-radius:16px;padding:28px;background:#fff;transition:.2s}
+  .svc:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(20,70,110,.12);border-color:#cfd9c9}
+  .svc .ic{width:52px;height:52px;border-radius:12px;background:var(--sage);display:grid;place-items:center;font-size:1.5rem;margin-bottom:16px}
+  .svc h3{font-size:1.25rem;margin-bottom:8px}
+  .svc p{color:var(--muted);font-size:.96rem}
+  @media(max-width:920px){.services{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.services{grid-template-columns:1fr}}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .signs{background:var(--sage)}
+  .checklist{list-style:none;display:grid;gap:12px;margin:22px 0 28px}
+  .checklist li{background:#fff;border-radius:12px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;font-weight:500}
+  .water-panel .checklist li::before{content:"$";background:var(--green)}
+  .checklist li::before{content:"!";flex:0 0 26px;height:26px;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.85rem}
+  .water-panel{background:var(--green-dark);color:#fff;border-radius:20px;padding:40px}
+  .water-panel h3{color:#fff;font-size:1.6rem;margin-bottom:12px}
+  .water-panel p{color:#cfe0ee;margin-bottom:22px}
+  .bigstat{font-family:Archivo,sans-serif;font-size:3.4rem;font-weight:800;color:#8fe0a8;line-height:1}
+  @media(max-width:880px){.split{grid-template-columns:1fr}.water-panel[style]{grid-template-columns:1fr!important}}
+
+  .who{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .who .card{border-radius:18px;padding:34px;border:1px solid var(--line)}
+  .who .card.res{background:var(--sand)}
+  .who .card.com{background:#f3f1ec}
+  .who h3{font-size:1.5rem;margin-bottom:10px}
+  .who ul{list-style:none;margin-top:14px}
+  .who li{padding:6px 0;border-bottom:1px dashed var(--line)}
+  .who li::before{content:"→ ";color:var(--terra);font-weight:700}
+  @media(max-width:760px){.who{grid-template-columns:1fr}}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+  .step{padding:24px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+  .step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--terra);color:#fff;font-weight:800;margin-bottom:14px;font-family:Archivo}
+  .step h3{font-size:1.1rem;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.93rem}
+  @media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+  .reviews-bg{background:var(--sand)}
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .review{background:#fff;border-radius:16px;padding:26px;border:1px solid var(--line)}
+  .stars{color:#e0a100;letter-spacing:2px}
+  .review p{font-style:italic;margin:10px 0 14px;color:var(--muted)}
+  .review .name{font-weight:700;color:var(--green-dark);font-size:.92rem}
+  .rating-strip{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+  .rating-strip div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 20px;font-weight:600}
+  @media(max-width:860px){.reviews{grid-template-columns:1fr}}
+
+  .areas{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .areas span{background:var(--sage);color:var(--green-dark);padding:10px 20px;border-radius:999px;font-weight:600}
+
+  .faq{max-width:800px;margin:0 auto}
+  details{border-bottom:1px solid var(--line);padding:18px 0}
+  summary{cursor:pointer;font-weight:600;font-size:1.06rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  summary::after{content:"+";color:var(--terra);font-size:1.4rem;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);margin-top:10px}
+
+  .cta{background:linear-gradient(120deg,var(--terra),#38c0d1);color:#fff;border-radius:22px;padding:60px 28px;text-align:center}
+  .cta h2{color:#fff;font-size:clamp(1.9rem,3.8vw,2.6rem);margin-bottom:10px}
+  .cta p{color:#e3f8fb;margin-bottom:24px;font-size:1.1rem}
+  .cta .btn{background:#fff;color:var(--terra-dark)}
+  .cta .btn:hover{background:var(--green-dark);color:#fff}
+
+  .contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+  .contact .card{border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:0 20px 50px rgba(0,0,0,.06)}
+  .cline{display:flex;gap:12px;align-items:center;margin:14px 0;font-weight:500}
+  .cline b{display:grid;place-items:center;width:42px;height:42px;border-radius:10px;background:var(--sage)}
+  @media(max-width:860px){.contact{grid-template-columns:1fr}}
+
+  footer{background:#081f33;color:#a7bfd2;padding:48px 0 96px;font-size:.92rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}
+  footer .logo b{color:#fff}
+  footer a{text-decoration:none}
+
+  .callbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 12px;gap:10px}
+  .callbar a{flex:1;text-align:center;padding:14px;border-radius:10px;font-weight:700;text-decoration:none}
+  .callbar .call{background:var(--green);color:#fff}
+  .callbar .q{background:var(--terra);color:#fff}
+  @media(max-width:760px){.callbar{display:flex}}
+
+  /* ===== AI assistant ===== */
+  .quick-btn .short{display:none}
+  @media(max-width:600px){.quick-btn{padding:10px 14px;font-size:.92rem;white-space:nowrap}.quick-btn .full{display:none}.quick-btn .short{display:inline}.quick-btn .dot{display:none}.logo b{font-size:1.1rem}.logo small{font-size:.62rem}}
+  .quick-btn{display:inline-flex;align-items:center;gap:9px;background:#3fae5c;color:#fff!important;border:0;font:inherit;font-weight:700;box-shadow:0 6px 18px rgba(63,174,92,.35)}
+  .quick-btn:hover{background:#318f4a;transform:translateY(-1px)}
+  .quick-btn .dot{width:9px;height:9px;border-radius:50%;background:#fff;animation:pulseW 1.8s infinite}
+  @keyframes pulseW{0%{box-shadow:0 0 0 0 rgba(255,255,255,.8)}70%{box-shadow:0 0 0 9px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+  .ask-bar{background:linear-gradient(90deg,#fff7ef,#eef5ea);border-bottom:1px solid var(--line)}
+  .ask-bar .wrap{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+  .ask-bar p{font-weight:600;color:var(--green-dark)}
+  .ask-btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;border:0;border-radius:999px;padding:11px 20px;font:inherit;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(20,70,110,.25)}
+  .ask-btn:hover{background:var(--green-dark)}
+  .ask-btn .dot{width:9px;height:9px;border-radius:50%;background:#7CFC9A;box-shadow:0 0 0 0 rgba(124,252,154,.7);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(124,252,154,.7)}70%{box-shadow:0 0 0 10px rgba(124,252,154,0)}100%{box-shadow:0 0 0 0 rgba(124,252,154,0)}}
+  .hero-ask{display:flex;gap:8px;background:#fff;border-radius:14px;padding:6px;max-width:560px;margin:0 0 26px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+  .hero-ask input{flex:1;border:0;font:inherit;padding:12px 12px;border-radius:10px;min-width:0;color:var(--ink)}
+  .hero-ask input:focus{outline:none}
+  .hero-ask button{border:0;border-radius:10px;background:var(--terra);color:#fff;font:inherit;font-weight:700;padding:0 18px;cursor:pointer;white-space:nowrap}
+  .hero-ask .mic{background:var(--sage);color:var(--green-dark);padding:0 14px;font-size:1.1rem}
+  .hero-ask-label{font-size:.85rem;color:#d3e2ee;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+
+  .chat{position:fixed;right:20px;bottom:20px;width:380px;max-width:calc(100vw - 24px);height:560px;max-height:calc(100vh - 40px);background:#fff;border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.3);display:none;flex-direction:column;overflow:hidden;z-index:100}
+  .chat.open{display:flex}
+  .chat-head{background:var(--green-dark);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
+  .chat-head .av{width:38px;height:38px;border-radius:50%;background:var(--terra);display:grid;place-items:center;font-size:1.1rem}
+  .chat-head b{display:block;font-size:.98rem}
+  .chat-head small{color:#b1cadd;font-size:.78rem}
+  .chat-head .x{margin-left:auto;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer;line-height:1}
+  .chat-head .voice{background:rgba(255,255,255,.14);border:0;color:#fff;border-radius:8px;padding:6px 9px;cursor:pointer;font-size:.78rem}
+  .chat-head .voice.on{background:var(--terra)}
+  .msgs{flex:1;overflow-y:auto;padding:16px;background:var(--sand);display:flex;flex-direction:column;gap:10px}
+  .m{max-width:85%;padding:10px 14px;border-radius:14px;font-size:.94rem;line-height:1.45}
+  .m.bot{background:#fff;border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+  .m.me{background:var(--green);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+  .m a{color:var(--terra);font-weight:700}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chips button{background:#fff;border:1px solid #cfd9c9;color:var(--green-dark);border-radius:999px;padding:6px 12px;font:inherit;font-size:.83rem;cursor:pointer}
+  .chips button:hover{background:var(--sage)}
+  .typing{font-size:.8rem;color:var(--muted);padding-left:4px}
+  .chat-in{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:#fff}
+  .chat-in input{flex:1;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font:inherit;min-width:0}
+  .chat-in button{border:0;border-radius:10px;padding:0 14px;font:inherit;font-weight:700;cursor:pointer}
+  .chat-in .send{background:var(--terra);color:#fff}
+  .chat-in .mic{background:var(--sage);color:var(--green-dark)}
+  .mic.listening{background:#ffd9c7!important;animation:pulse 1.2s infinite}
+  .chat-foot{font-size:.7rem;color:var(--muted);text-align:center;padding:0 10px 8px;background:#fff}
+  @media(max-width:760px){.chat{right:12px;bottom:84px;height:70vh}}
+</style>
+<style>
+  body{background:#f3f5f7}
+  .hbar{position:sticky;top:0;z-index:70;background:#0c2c47;color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+  .hbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+  .hbar .lab{display:flex;align-items:center;gap:10px;font-weight:600}
+  .hbar .lab small{display:block;font-weight:400;color:#b1cadd;font-size:.82rem}
+  .hbar .tag{background:#3fae5c;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.08em;padding:4px 8px;border-radius:6px}
+  .hbar .quick-btn{padding:12px 22px;border-radius:10px;cursor:pointer}
+  .site{max-width:1600px;margin:0 auto;position:relative}
+  .site img{width:100%;height:auto;display:block}
+  .note{position:absolute;top:18px;right:18px;background:rgba(0,0,0,.72);color:#fff;font-size:.8rem;padding:7px 12px;border-radius:8px;z-index:5}
+  .bubble{position:fixed;right:24px;bottom:28px;z-index:65;background:#fff;color:#0c2c47;border-radius:16px;padding:14px 16px;box-shadow:0 18px 40px rgba(0,0,0,.25);max-width:280px;font-weight:600;cursor:pointer;border:2px solid #3fae5c}
+  .bubble small{display:block;font-weight:400;color:#5f6b62;margin-top:4px}
+  @media(max-width:760px){.hbar .lab small{display:none}.bubble{display:none}.note{font-size:.7rem;top:10px;right:10px}}
+</style>
+<title>Southwest Irrigation + Southwest Helper (demo)</title>
+</head>
+<body>
+<div class="demo-bar">Demo: Southwest Irrigation's current website with the new Southwest helper added. Prepared by Web Texas Nexus.</div>
+<div class="hbar">
+  <div class="wrap">
+    <div class="lab"><span class="tag">NEW</span><span>Need a quick answer? Ask our helper, day or night.<small>Type or talk · answers instantly · books your visit</small></span></div>
+    <button class="btn quick-btn" onclick="openChat()"><span class="dot"></span><span class="full">🎤 Ask Southwest 24/7</span><span class="short">🎤 Ask 24/7</span></button>
+  </div>
+</div>
+<div class="site">
+  <div class="note">Your current homepage (picture)</div>
+  <picture>
+    <source media="(max-width:760px)" srcset="assets/current-site-phone.jpg">
+    <img src="assets/current-site-desktop.jpg" alt="Southwest Irrigation's current homepage">
+  </picture>
+</div>
+<div class="bubble" onclick="openChat()">💬 Hi! Questions about your sprinklers, drainage, or lighting?<small>Tap here for an instant answer.</small></div>
+<div class="callbar" style="z-index:66">
+  <a class="call" href="tel:+12813100104">📞 Call Now</a>
+  <a class="q" href="#" onclick="openChat();return false">🎤 Ask Southwest</a>
+</div>
+
+<div class="chat" id="chat" role="dialog" aria-label="Southwest's helper">
+  <div class="chat-head">
+    <div class="av">💧</div>
+    <div><b>Ask Southwest's Helper</b><small>Type or talk · answers 24/7</small></div>
+    <button class="voice" id="voiceBtn" onclick="toggleVoice()" title="Read answers out loud">🔈 Voice off</button>
+    <button class="x" onclick="closeChat()" aria-label="Close">×</button>
+  </div>
+  <div class="msgs" id="msgs"></div>
+  <form class="chat-in" onsubmit="event.preventDefault();var i=document.getElementById('ci');if(i.value.trim()){send(i.value.trim());i.value='';}">
+    <input id="ci" placeholder="Type your question…" aria-label="Message" autocomplete="off">
+    <button type="button" class="mic" id="micBtn" onclick="listen()" aria-label="Speak">🎤</button>
+    <button class="send" type="submit">Send</button>
+  </form>
+  <div class="chat-foot">Southwest's helper. For urgent issues call (281) 310-0104.</div>
+</div>
+
+<script>
+(function(){
+  var msgs=document.getElementById('msgs'), chat=document.getElementById('chat');
+  var started=false, voiceOn=false, lead={step:null};
+  var PHONE='<a href="tel:+12813100104">(281) 310-0104</a>';
+  var KB=[
+    {k:['hour','open','close','weekend','saturday','sunday','time'],a:'Our office is open Monday to Friday 8am to 5pm, and Saturday 8am to 4pm. I\'m here 24/7, so I can take your request right now and the team will follow up.',book:true},
+    {k:['leak','leaking','broken','puddle','soggy sprinkler','water bill','bill','head','nozzle','valve','zone','dry','brown'],a:'Sounds like your sprinkler system needs a repair. Our state-licensed technicians fix leaks, broken heads, valves, and dry zones with quality parts at a fair price. Want me to set up a repair visit?',book:true},
+    {k:['install','new system','new sprinkler','rain bird','design'],a:'We design and install water-efficient sprinkler systems as a Rain Bird Select Contractor. Every new install includes a 3-year written warranty, a wireless rain sensor, a CAD drawing of your system, free adjustments for 30 days, and we handle the permits. Want a free estimate?',book:true},
+    {k:['warranty','guarantee','satisf'],a:'New installations come with a 3-year written warranty, and we guarantee 100% satisfaction. If anything isn\'t right, we\'ll come back and make it right.'},
+    {k:['drain','standing water','puddle','soggy','flood','french','sump','yard holds water','mud'],a:'Standing water and soggy yards are common on the Gulf Coast. Our NDS-certified estimators design French drains, area drains, sump pumps, and grading with commercial-grade materials. Want a free drainage estimate?',book:true},
+    {k:['clog','clean','hydro','jet','blocked','gutter','downspout'],a:'Our hydro jet service (4,000 psi) clears leaves, silt, and debris from landscape drain pipes without chemicals and without tearing up your pipe. Want to book a drain cleaning?',book:true},
+    {k:['light','lighting','led','christmas','holiday'],a:'We install Sterling LED low-voltage landscape lighting for curb appeal, safety, and security, and we also do holiday Christmas lighting. Want a free lighting estimate?',book:true},
+    {k:['backflow','test'],a:'Yes, we\'re a licensed backflow prevention assembly tester (BP0014356). Want to schedule a test?',book:true},
+    {k:['maint','vip','member','plan','check','season'],a:'We offer maintenance plans with seasonal check-ups so your system keeps working all year. VIP membership plans start at $20 a month. Want someone to tell you about the plans?',book:true},
+    {k:['price','cost','how much','charge','quote','estimate','expensive','fair'],a:'Installation, drainage, and lighting estimates are free. Repairs are priced fairly, and our VIP plans start at $20 a month. Want me to request an estimate?',book:true},
+    {k:['area','where','katy','sugar land','richmond','woodlands','tomball','cypress','pearland','rosharon','serve','location'],a:'We serve the greater Houston area, including Katy, Sugar Land, Richmond, The Woodlands, Tomball, Magnolia, Missouri City, and more, from offices in Houston, Rosharon, and Richmond. Tell me your neighborhood and the team will confirm.',book:true},
+    {k:['license','licensed','insured','legit','trust','review','experience','how long','years','since'],a:'Southwest Irrigation has served the greater Houston area since 1985. We\'re a licensed irrigator (LI0009024), fully insured, a Rain Bird Select Contractor, and members of the Houston Gulf Coast Irrigation Association, with more than 5,000 Google reviews rated 4.9 to 5.0 stars across our offices.'},
+    {k:['phone','call','number','talk to','human','person'],a:'You can call us at '+PHONE+' during office hours. Or I can take your details now and have someone call you back.',book:true},
+    {k:['book','appointment','schedule','visit','come out','yes','sure','ok','please'],a:'__book__'}
+  ];
+  function say(text){ if(!voiceOn||!('speechSynthesis' in window))return; var t=text.replace(/<[^>]+>/g,''); speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(t); u.rate=1.02; speechSynthesis.speak(u); }
+  function add(html,who){ var d=document.createElement('div'); d.className='m '+who; d.innerHTML=html; msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; return d; }
+  function chips(list){ var c=document.createElement('div'); c.className='chips'; list.forEach(function(l){var b=document.createElement('button'); b.type='button'; b.textContent=l; b.onclick=function(){send(l)}; c.appendChild(b)}); msgs.appendChild(c); msgs.scrollTop=msgs.scrollHeight; }
+  function bot(html,ch){ var t=document.createElement('div'); t.className='typing'; t.textContent='Assistant is typing…'; msgs.appendChild(t); msgs.scrollTop=msgs.scrollHeight;
+    setTimeout(function(){ t.remove(); add(html,'bot'); say(html); if(ch)chips(ch); },650); }
+  function startBooking(){ lead={step:'name'}; bot('Great, let\'s get you scheduled. What\'s your name?'); }
+  function handleLead(text){
+    if(lead.step==='name'){ lead.name=text; lead.step='phone'; bot('Thanks, '+text.split(' ')[0]+'! What\'s the best phone number to reach you?'); return true; }
+    if(lead.step==='phone'){ lead.phone=text; lead.step='area'; bot('Got it. What city or area is the property in?'); return true; }
+    if(lead.step==='area'){ lead.area=text; lead.step='issue'; bot('And briefly, what\'s going on with your system?'); return true; }
+    if(lead.step==='issue'){ lead.issue=text; lead.step=null;
+      bot('You\'re all set! Here\'s what I\'m sending to the team:<br><br><b>Name:</b> '+esc(lead.name)+'<br><b>Phone:</b> '+esc(lead.phone)+'<br><b>Area:</b> '+esc(lead.area)+'<br><b>Issue:</b> '+esc(lead.issue)+'<br><br>Someone from our office will call you back (Mon to Fri 8am to 5pm, Sat 8am to 4pm). For anything urgent, call '+PHONE+'.<br><small style="color:#888">(Demo: on the live site this goes straight to the owner\'s phone and calendar.)</small>',['Ask another question']); return true; }
+    return false;
+  }
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function answer(text){
+    if(handleLead(text))return;
+    var q=text.toLowerCase();
+    if(q==='ask another question'){ bot('Sure, what else can I help with?',['Hours','Drainage','VIP plans','Book a visit']); return; }
+    for(var i=0;i<KB.length;i++){ var e=KB[i]; for(var j=0;j<e.k.length;j++){ if(q.indexOf(e.k[j])>-1){
+      if(e.a==='__book__'){ startBooking(); return; }
+      bot(e.a, e.book?['Yes, book a visit','Ask another question']:['Book a visit','Ask another question']); return; } } }
+    bot('Good question. I want to make sure you get the right answer, so I\'ll have one of our licensed techs follow up. Want me to take your details? Or call '+PHONE+'.',['Yes, book a visit','Hours','Service area']);
+  }
+  window.send=function(text){ add(esc(text),'me'); answer(text); };
+  window.openChat=function(mic){ chat.classList.add('open');
+    if(!started){ started=true; bot('Hi! 👋 I\'m Southwest\'s helper. I can answer questions about sprinkler repairs, new systems, drainage, drain cleaning, and lighting, or book you a visit. What can I help with?',['My sprinkler is leaking','Yard holds water','New sprinkler system','Outdoor lighting','Warranty']); }
+    if(mic)setTimeout(listen,300); else setTimeout(function(){document.getElementById('ci').focus()},100); };
+  window.closeChat=function(){ chat.classList.remove('open'); if('speechSynthesis' in window)speechSynthesis.cancel(); };
+  window.toggleVoice=function(){ voiceOn=!voiceOn; var b=document.getElementById('voiceBtn'); b.classList.toggle('on',voiceOn); b.textContent=voiceOn?'🔊 Voice on':'🔈 Voice off'; if(!voiceOn&&'speechSynthesis' in window)speechSynthesis.cancel(); };
+  window.listen=function(){
+    var SR=window.SpeechRecognition||window.webkitSpeechRecognition, mb=document.getElementById('micBtn');
+    if(!SR){ bot('Voice input isn\'t supported in this browser. Try Chrome or Safari, or just type your question.'); return; }
+    if(!voiceOn)toggleVoice();
+    var r=new SR(); r.lang='en-US'; r.interimResults=false; mb.classList.add('listening');
+    r.onresult=function(e){ send(e.results[0][0].transcript); };
+    r.onend=function(){ mb.classList.remove('listening'); };
+    r.onerror=function(){ mb.classList.remove('listening'); };
+    r.start();
+  };
+})();
+</script>
+
+</body>
+</html>
